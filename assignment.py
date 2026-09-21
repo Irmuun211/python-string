@@ -16,7 +16,7 @@ def remove_spaces(text):
 def count_vowels(text):
     x=0
     for i in text:
-        if (i=='a' or i=='i' or i=='e' or i=='o' or i=='u'):
+        if i.lower() in "aeiou":
             x+=1
     return x
 
@@ -36,8 +36,11 @@ def count_words(text):
 def find_longest_word(text):
     words= text.split()
     m=0
-    for i in range(len(words)):
-        m= max(len(words[i]),m)
-        if(m == max(len(words[i]),m)):
-            d=i
-    return words[d]
+    if(len(words)==0):
+        return ""
+    else:
+        for i in range(len(words)):
+            if(m<len(words[i])):
+                d= i
+                m= len(words[i])
+        return words[d]
